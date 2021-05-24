@@ -18,8 +18,8 @@ module Repositories
             adapter.create(params)
         end
 
-        def update(hall, params)
-            hall.update(params)
+        def update(id, params)
+            adapter.update(id, params)
         end
 
         def delete(id)

@@ -20,9 +20,9 @@ class HallsController < ApplicationController
     end
 
     def update
-        @hall = UseCases::Halls::Find.new.call(id: params[:id])
+        @hall = UseCases::Halls::Update.new.call(id: params[:id], params: hall_params)
         
-        if UseCases::Halls::Update.new.call(hall: @hall, params: hall_params)
+        if @hall.valid?
             render json: @hall
         else
             render json: @hall.errors, status: :unprocessable_entity

@@ -7,8 +7,8 @@ module UseCases
                 @repository = repository
             end
 
-            def call(hall:, params:)
-                repository.update(hall, params)
+            def call(id:, params:)
+                repository.update(id, params)
             end
         end
     end
