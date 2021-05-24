@@ -1,9 +1,9 @@
-module Halls
-    module UseCases
+module UseCases
+    module Halls
         class Find
             attr_reader :repository
 
-            def initialize(repository: Halls::Repository.new)
+            def initialize(repository: Repositories::Halls.new)
                 @repository = repository
             end
 

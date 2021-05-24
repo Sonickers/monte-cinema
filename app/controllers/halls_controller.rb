@@ -1,10 +1,16 @@
 class HallsController < ApplicationController
     def index
-        render json: Halls::UseCases::FetchAll.new.call
+        @halls = UseCases::Halls::FetchAll.new.call
+        render json: Representers::Halls.new(@halls).basic
+    end
+
+    def show
+        @hall = UseCases::Halls::Find.new.call(id: params[:id])
+        render json: Representers::Hall.new(@hall).basic
     end
     
     def create
-        @hall = Halls::UseCases::Create.new.call(params: hall_params)
+        @hall = UseCases::Halls::Create.new.call(params: hall_params)
 
         if @hall.valid?
             render json: @hall, status: :created, location: @hall
@@ -14,9 +20,9 @@ class HallsController < ApplicationController
     end
 
     def update
-        @hall = Halls::UseCases::Find.new.call(id: params[:id])
+        @hall = UseCases::Halls::Find.new.call(id: params[:id])
         
-        if Halls::UseCases::Update.new.call(hall: @hall, params: hall_params)
+        if UseCases::Halls::Update.new.call(hall: @hall, params: hall_params)
             render json: @hall
         else
             render json: @hall.errors, status: :unprocessable_entity
@@ -24,7 +30,7 @@ class HallsController < ApplicationController
     end
 
     def destroy
-        Halls::UseCases::Delete.new.call(id: params[:id])
+        UseCases::Halls::Delete.new.call(id: params[:id])
     end
 
     private

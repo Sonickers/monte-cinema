@@ -1,5 +1,5 @@
-module Halls
-    class Repository
+module Repositories
+    class Halls
         attr_reader :adapter
 
         def initialize(adapter: Hall)
