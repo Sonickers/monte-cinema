@@ -11,7 +11,7 @@ module Halls
         end
 
         def create(params)
-            adapter.new(params).save
+            adapter.create(params)
         end
 
         def delete(id)

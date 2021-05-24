@@ -6,9 +6,9 @@ class HallsController < ApplicationController
     end
     
     def create
-        @hall = Hall.new(hall_params)
+        @hall = Halls::UseCases::Create.new.call(params: hall_params)
 
-        if @hall.save
+        if @hall.valid?
             render json: @hall, status: :created, location: @hall
         else
             render json: @hall.errors, status: :unprocessable_entity
