@@ -1,5 +1,5 @@
 class HallsController < ApplicationController
-    before_action :set_hall, only: [:show, :update, :destroy]
+    before_action :set_hall, only: [:show, :update]
 
     def index
         render json: Halls::UseCases::FetchAll.new.call
@@ -24,7 +24,7 @@ class HallsController < ApplicationController
     end
 
     def destroy
-        @hall.destroy
+        Halls::UseCases::Delete.new.call(id: params[:id])
     end
 
     private
