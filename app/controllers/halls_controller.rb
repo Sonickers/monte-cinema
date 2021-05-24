@@ -1,6 +1,4 @@
 class HallsController < ApplicationController
-    before_action :set_hall, only: [:show, :update]
-
     def index
         render json: Halls::UseCases::FetchAll.new.call
     end
@@ -16,7 +14,9 @@ class HallsController < ApplicationController
     end
 
     def update
-        if @hall.update(hall_params)
+        @hall = Halls::UseCases::Find.new.call(id: params[:id])
+        
+        if Halls::UseCases::Update.new.call(hall: @hall, params: hall_params)
             render json: @hall
         else
             render json: @hall.errors, status: :unprocessable_entity
@@ -31,9 +31,5 @@ class HallsController < ApplicationController
     
     def hall_params
         params.require(:hall).permit(:name, :seats)
-    end
-
-    def set_hall
-        @hall = Hall.find(params[:id])
     end
 end

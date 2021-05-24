@@ -7,11 +7,19 @@ module Halls
         end
 
         def find_all
-            adapter.all
+            adapter.order(:id).all
+        end
+
+        def find(id)
+            adapter.find(id)
         end
 
         def create(params)
             adapter.create(params)
+        end
+
+        def update(hall, params)
+            hall.update(params)
         end
 
         def delete(id)
