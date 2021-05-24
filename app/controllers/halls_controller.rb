@@ -2,9 +2,7 @@ class HallsController < ApplicationController
     before_action :set_hall, only: [:show, :update, :destroy]
 
     def index
-        @halls = Hall.all
-
-        render json: @halls
+        render json: Halls::UseCases::FetchAll.new.call
     end
     
     def create
