@@ -1,5 +1,5 @@
-module Representers
-    class Halls
+module Halls::Representers
+    class List
         attr_reader :halls
 
         def initialize(halls)

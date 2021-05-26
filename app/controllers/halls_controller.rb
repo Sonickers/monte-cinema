@@ -1,16 +1,16 @@
 class HallsController < ApplicationController
     def index
-        @halls = UseCases::Halls::FetchAll.new.call
-        render json: Representers::Halls.new(@halls).basic
+        @halls = Halls::UseCases::FetchAll.new.call
+        render json: Halls::Representers::List.new(@halls).basic
     end
 
     def show
-        @hall = UseCases::Halls::Find.new.call(id: params[:id])
-        render json: Representers::Hall.new(@hall).basic
+        @hall = Halls::UseCases::Find.new.call(id: params[:id])
+        render json: Halls::Representers::Single.new(@hall).basic
     end
     
     def create
-        @hall = UseCases::Halls::Create.new.call(params: hall_params)
+        @hall = Halls::UseCases::Create.new.call(params: hall_params)
 
         if @hall.valid?
             render json: @hall, status: :created, location: @hall
@@ -20,7 +20,7 @@ class HallsController < ApplicationController
     end
 
     def update
-        @hall = UseCases::Halls::Update.new.call(id: params[:id], params: hall_params)
+        @hall = Halls::UseCases::Update.new.call(id: params[:id], params: hall_params)
         
         if @hall.valid?
             render json: @hall
@@ -30,7 +30,7 @@ class HallsController < ApplicationController
     end
 
     def destroy
-        UseCases::Halls::Delete.new.call(id: params[:id])
+        Halls::UseCases::Delete.new.call(id: params[:id])
     end
 
     private

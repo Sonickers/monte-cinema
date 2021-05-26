@@ -1,11 +1,11 @@
-module Representers
-    class Hall
+module Halls::Representers
+    class Single
         attr_reader :hall
-
+        
         def initialize(hall)
             @hall = hall
         end
-
+        
         def basic
             {
                 id: hall.id,

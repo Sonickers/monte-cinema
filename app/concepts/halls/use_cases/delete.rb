@@ -1,9 +1,9 @@
-module UseCases
-    module Halls
+module Halls
+    module UseCases
         class Delete
             attr_reader :repository
 
-            def initialize(repository: Repositories::Halls.new)
+            def initialize(repository: Halls::Repository.new)
                 @repository = repository
             end
 
