@@ -43,6 +43,16 @@ RSpec.describe 'Seances', type: :request do
       post('/seances', params: { seance: { date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id } })
       expect(response.status).to eq(201)
     end
+
+    it 'validates movie_id and gives error' do
+      post('/seances', params: { seance: { date: '2021-06-01', time: '17:30', hall_id: hall.id } })
+      expect(response.status).to eq(422)
+    end
+
+    it 'validates hall_id and gives error' do
+      post('/seances', params: { seance: { date: '2021-06-01', time: '17:30', movie_id: movie.id } })
+      expect(response.status).to eq(422)
+    end
   end
 
   describe 'PUT /seances/:id' do
