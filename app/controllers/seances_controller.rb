@@ -1,20 +1,18 @@
 class SeancesController < ApplicationController
-  before_action :set_seance, only: %i[show update destroy]
-
   def index
-    @seances = Seance.all
-
-    render json: @seances
+    @seances = Seances::UseCases::FetchAll.new.call
+    render json: Seances::Representers::List.new(@seances).basic
   end
 
   def show
-    render json: @seance
+    @seance = Seances::UseCases::Find.new.call(id: params[:id])
+    render json: Seances::Representers::Single.new(@seance).basic
   end
 
   def create
-    @seance = Seance.new(seance_params)
+    @seance = Seances::UseCases::Create.new.call(params: seance_params)
 
-    if @seance.save
+    if @seance.valid?
       render json: @seance, status: :created, location: @seance
     else
       render json: @seance.errors, status: :unprocessable_entity
@@ -22,7 +20,9 @@ class SeancesController < ApplicationController
   end
 
   def update
-    if @seance.update(seance_params)
+    @seance = Seances::UseCases::Update.new.call(id: params[:id], params: seance_params)
+
+    if @seance.valid?
       render json: @seance
     else
       render json: @seance.errors, status: :unprocessable_entity
@@ -30,14 +30,10 @@ class SeancesController < ApplicationController
   end
 
   def destroy
-    @seance.destroy
+    Seances::UseCases::Delete.new.call(id: params[:id])
   end
 
   private
-
-  def set_seance
-    @seance = Seance.find(params[:id])
-  end
 
   def seance_params
     params.require(:seance).permit(:date, :time, :movie_id, :hall_id)
