@@ -5,7 +5,7 @@ class MoviesController < ApplicationController
     end
 
     def show
-        @movie = Movie::UseCases::Find.new.call(id: params[:id])
+        @movie = Movies::UseCases::Find.new.call(id: params[:id])
         render json: Movies::Representers::Single.new(@movie).basic
     end
     
