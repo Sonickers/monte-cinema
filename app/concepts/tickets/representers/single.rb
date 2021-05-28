@@ -1,20 +1,19 @@
 module Ticket
-    module Representers
-        class Single
+  module Representers
+    class Single
+      attr_reader :ticket
 
-            attr_reader :ticket
+      def initialize(ticket)
+        @ticket = ticket
+      end
 
-            def initialize(ticket)
-                @ticket = ticket
-            end
-
-            def basic 
-                {
-                    id: ticket.id,
-                    price: ticket.price,
-                    seat: ticket.seat
-                }
-            end
-        end
+      def basic
+        {
+          id: ticket.id,
+          price: ticket.price,
+          seat: ticket.seat
+        }
+      end
     end
+  end
 end

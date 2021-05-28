@@ -13,7 +13,7 @@ RSpec.describe 'Halls', type: :request do
   end
 
   describe 'GET /halls/:id' do
-    let!(:hall) { Hall.create(name: "A", seats: 200) }
+    let!(:hall) { Hall.create(name: 'A', seats: 200) }
 
     before { hall }
 
@@ -25,7 +25,7 @@ RSpec.describe 'Halls', type: :request do
 
   describe 'POST /halls' do
     it 'works and returns status 201' do
-      post('/halls', params: { hall: {  name: 'new name', seats: 100 } } )
+      post('/halls', params: { hall: { name: 'new name', seats: 100 } })
       expect(response.status).to eq(201)
     end
   end
@@ -45,7 +45,7 @@ RSpec.describe 'Halls', type: :request do
     let!(:hall) { Hall.create(name: 'Some name', seats: 500) }
 
     before { hall }
-    
+
     it 'works and return status 204' do
       delete("/halls/#{hall.id}")
       expect(response.status).to eq(204)

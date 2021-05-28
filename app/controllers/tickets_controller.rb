@@ -1,41 +1,41 @@
 class TicketsController < ApplicationController
-    def index
-        @tickets = Tickets::UseCases::FetchAll.new.call
-        render json: Tickets::Representers::List.new(@tickets).basic
-    end
+  def index
+    @tickets = Tickets::UseCases::FetchAll.new.call
+    render json: Tickets::Representers::List.new(@tickets).basic
+  end
 
-    def show
-        @ticket = Ticket::UseCases::Find.new.call(id: params[:id])
-        render json: Ticket::Representers::Single.new(@ticket).basic
-    end
-    
-    def create
-        @ticket = Tickets::UseCases::Create.new.call(params: ticket_params)
+  def show
+    @ticket = Ticket::UseCases::Find.new.call(id: params[:id])
+    render json: Ticket::Representers::Single.new(@ticket).basic
+  end
 
-        if @ticket.valid?
-            render json: @ticket, status: :created, location: @ticket
-        else
-            render json: @ticket.errors, status: :unprocessable_entity
-        end
-    end
+  def create
+    @ticket = Tickets::UseCases::Create.new.call(params: ticket_params)
 
-    def update
-        @ticket = Tickets::UseCases::Update.new.call(id: params[:id], params: ticket_params)
-        
-        if @ticket.valid?
-            render json: @ticket
-        else
-            render json: @ticket.errors, status: :unprocessable_entity
-        end
+    if @ticket.valid?
+      render json: @ticket, status: :created, location: @ticket
+    else
+      render json: @ticket.errors, status: :unprocessable_entity
     end
+  end
 
-    def destroy
-        Tickets::UseCases::Delete.new.call(id: params[:id])
-    end
+  def update
+    @ticket = Tickets::UseCases::Update.new.call(id: params[:id], params: ticket_params)
 
-    private
-    
-    def ticket_params
-        params.require(:ticket).permit(:price, :seat, :type)
+    if @ticket.valid?
+      render json: @ticket
+    else
+      render json: @ticket.errors, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    Tickets::UseCases::Delete.new.call(id: params[:id])
+  end
+
+  private
+
+  def ticket_params
+    params.require(:ticket).permit(:price, :seat, :type)
+  end
 end
