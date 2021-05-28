@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  resources :halls
+  resources :halls, :movies, :tickets
 end
