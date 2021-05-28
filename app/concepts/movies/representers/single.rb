@@ -1,4 +1,4 @@
-module Movie
+module Movies
     module Representers
         class Single
 
