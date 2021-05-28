@@ -1,6 +1,6 @@
-module Movies
+module Tickets
     class Repository < ::BaseRepository
-        def initialize(adapter: Movie)
+        def initialize(adapter: Ticket)
             super(adapter: adapter)
         end
     end
