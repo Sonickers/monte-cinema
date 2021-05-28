@@ -1,4 +1,4 @@
-module Ticket
+module Tickets
   module Representers
     class Single
       attr_reader :ticket

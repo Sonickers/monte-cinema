@@ -5,8 +5,8 @@ class TicketsController < ApplicationController
   end
 
   def show
-    @ticket = Ticket::UseCases::Find.new.call(id: params[:id])
-    render json: Ticket::Representers::Single.new(@ticket).basic
+    @ticket = Tickets::UseCases::Find.new.call(id: params[:id])
+    render json: Tickets::Representers::Single.new(@ticket).basic
   end
 
   def create
@@ -36,6 +36,6 @@ class TicketsController < ApplicationController
   private
 
   def ticket_params
-    params.require(:ticket).permit(:price, :seat, :type)
+    params.require(:ticket).permit(:price, :seat, :group)
   end
 end

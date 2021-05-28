@@ -3,7 +3,7 @@ class AddTickets < ActiveRecord::Migration[6.1]
     create_table :tickets do |t|
       t.integer :price
       t.string :seat
-      t.string :type
+      t.string :group
 
       t.timestamps
     end
