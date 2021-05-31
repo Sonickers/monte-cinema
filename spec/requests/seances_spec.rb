@@ -56,7 +56,7 @@ RSpec.describe 'Seances', type: :request do
   end
 
   describe 'PUT /seances/:id' do
-    let!(:seance) { Seance.create(date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id) }
+    let(:seance) { Seance.create(date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id) }
 
     before { seance }
 
@@ -67,7 +67,7 @@ RSpec.describe 'Seances', type: :request do
   end
 
   describe 'DELETE /seances/:id' do
-    let!(:seance) { Seance.create(date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id) }
+    let(:seance) { Seance.create(date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id) }
 
     before { seance }
 
