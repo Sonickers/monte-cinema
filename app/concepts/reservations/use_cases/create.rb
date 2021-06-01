@@ -8,7 +8,7 @@ module Reservations
       end
 
       def call(params:)
-        repository.create(params.merge(reservation_status_id: 1))
+        repository.create(params.merge(reservation_status: ReservationStatus.booked))
       end
     end
   end
