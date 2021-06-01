@@ -31,7 +31,7 @@ RSpec.describe 'Halls', type: :request do
   end
 
   describe 'PUT /halls/:id' do
-    let!(:hall) { Hall.create(name: 'Some name', seats: 200) }
+    let(:hall) { Hall.create(name: 'Some name', seats: 200) }
 
     before { hall }
 
@@ -42,7 +42,7 @@ RSpec.describe 'Halls', type: :request do
   end
 
   describe 'DELETE /halls/:id' do
-    let!(:hall) { Hall.create(name: 'Some name', seats: 500) }
+    let(:hall) { Hall.create(name: 'Some name', seats: 500) }
 
     before { hall }
 
