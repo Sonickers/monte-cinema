@@ -7,15 +7,10 @@ class Seance < ApplicationRecord
   validates :hall_id, presence: true
 
   def available_seats
-    all_seats = hall.generate_seats
-    taken = taken_seats
-
-    all_seats.reject { |seat| taken.include? seat }
+    hall.generate_seats - taken_seats
   end
 
   def taken_seats
-    reserved_tickets = reservations.map(&:tickets).flatten
-
-    reserved_tickets.map(&:seat)
+    reservations.flat_map(&:tickets).map(&:seat)
   end
 end
