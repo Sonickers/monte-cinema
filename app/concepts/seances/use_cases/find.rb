@@ -1,13 +1,14 @@
 module Seances
   module UseCases
     class Find
-      attr_reader :repository
+      attr_reader :repository, :id
 
-      def initialize(repository: Seances::Repository.new)
+      def initialize(id:, repository: Seances::Repository.new)
         @repository = repository
+        @id = id
       end
 
-      def call(id:)
+      def call
         repository.find(id)
       end
     end

@@ -1,15 +1,15 @@
 module Reservations
   module Representers
     class Single
-      attr_reader :reservations
+      attr_reader :reservation
 
-      def initialize(reservations)
-        @reservations = reservations
+      def initialize(reservation)
+        @reservation = reservation
       end
 
       def basic
         {
-          id: reservations.id
+          id: reservation.id
         }
       end
     end
