@@ -21,7 +21,7 @@ Must have:
 - [ ] Employer should have ability to create online reservation but also offline reservation
 
 Not functional requirements:
-- [ ]API should be documented 
+- [ ] API should be documented 
 - [ ] Application should have provided seeds and should be generally operational
 - [ ] At least 80% of tests coverage
 - [ ] Application should have connected Sentry and CircleCI
