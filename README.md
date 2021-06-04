@@ -1,13 +1,13 @@
 # 🍿 MONTE CINEMA API 🎥
 
-Technologies:
+### Technologies
 - Rails 6
 - Ruby 3.0
 - Postgresql
 - RSpec
 
-Must have:
-- [ ] Functional requirements:
+### Must have
+Functional requirements:
 - [ ] Endpoint to buy tickets/create reservation from ticket desk
 - [ ] Endpoint to buy tickets/create reservation from online application
 - [ ] There should be mechanism (Cronjob? Background job?) to terminate reservation if somebody did not pay ~30 minutes before screening (for reservations created by online application)
@@ -21,13 +21,14 @@ Must have:
 - [ ] Employer should have ability to create online reservation but also offline reservation
 
 Not functional requirements:
-- [ ]API should be documented 
+- [ ] API should be documented 
 - [ ] Application should have provided seeds and should be generally operational
 - [ ] At least 80% of tests coverage
 - [ ] Application should have connected Sentry and CircleCI
 - [ ] Application should be accessible publicly (for instance by Heroku)
 - [ ] Application should have configured rubocop and should fulfill all rubocop requirements.
-- Nice to have:
+
+Nice to have:
 - [ ] JSON:API endpoint
 - [ ] GraphQL endpoint
 - [ ] File upload (for instance avatar for user?)
