@@ -1,10 +1,11 @@
 module Seances
   module Representers
     class Single
-      attr_reader :seance
+      attr_reader :seance, :seats
 
-      def initialize(seance)
+      def initialize(seance, seats: {})
         @seance = seance
+        @seats = seats
       end
 
       def basic
@@ -18,15 +19,7 @@ module Seances
       end
 
       def extended
-        {
-          id: seance.id,
-          time: seance.time,
-          date: seance.date,
-          movie: seance.movie_id,
-          hall: seance.hall_id,
-          available_seats: seance.available_seats,
-          taken_seats: seance.taken_seats
-        }
+        basic.merge(seats)
       end
     end
   end

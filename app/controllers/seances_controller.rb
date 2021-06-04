@@ -5,8 +5,9 @@ class SeancesController < ApplicationController
   end
 
   def show
-    @seance = Seances::UseCases::Find.new.call(id: params[:id])
-    render json: Seances::Representers::Single.new(@seance).extended
+    @seance = Seances::UseCases::Find.new(id: params[:id]).call
+    @seats = Seances::UseCases::GetSeats.new(seance: @seance).call
+    render json: Seances::Representers::Single.new(@seance, seats: @seats).extended
   end
 
   def create
