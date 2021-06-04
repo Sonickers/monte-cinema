@@ -27,7 +27,8 @@ Not functional requirements:
 - [ ] Application should have connected Sentry and CircleCI
 - [ ] Application should be accessible publicly (for instance by Heroku)
 - [ ] Application should have configured rubocop and should fulfill all rubocop requirements.
-- Nice to have:
+
+Nice to have:
 - [ ] JSON:API endpoint
 - [ ] GraphQL endpoint
 - [ ] File upload (for instance avatar for user?)
