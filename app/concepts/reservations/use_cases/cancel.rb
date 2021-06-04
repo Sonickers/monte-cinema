@@ -1,6 +1,6 @@
 module Reservations
   module UseCases
-    class Find
+    class Cancel
       attr_reader :repository, :id
 
       def initialize(id:, repository: Reservations::Repository.new)
@@ -9,7 +9,7 @@ module Reservations
       end
 
       def call
-        repository.find(id)
+        repository.set_status(id, ReservationStatus.cancelled)
       end
     end
   end

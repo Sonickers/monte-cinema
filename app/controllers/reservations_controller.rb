@@ -5,12 +5,12 @@ class ReservationsController < ApplicationController
   end
 
   def show
-    @reservations = Reservations::UseCases::Find.new.call(id: params[:id])
+    @reservations = Reservations::UseCases::Find.new(id: params[:id]).call
     render json: Reservations::Representers::Single.new(@reservations).basic
   end
 
   def create
-    @reservation = Reservations::UseCases::Create.new.call(params: reservation_params)
+    @reservation = Reservations::UseCases::Create.new(params: reservation_params).call
 
     if @reservation.valid?
       render json: @reservation, status: :created, location: @reservation
@@ -20,7 +20,7 @@ class ReservationsController < ApplicationController
   end
 
   def update
-    @reservation = Reservations::UseCases::Update.new.call(id: params[:id], params: reservation_params)
+    @reservation = Reservations::UseCases::Update.new(id: params[:id], params: reservation_params).call
 
     if @reservation.valid?
       render json: @reservation
@@ -30,7 +30,7 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
-    Reservations::UseCases::Delete.new.call(id: params[:id])
+    Reservations::UseCases::Cancel.new(id: params[:id]).call
   end
 
   private
