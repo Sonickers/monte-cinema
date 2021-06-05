@@ -9,11 +9,7 @@ module Tickets
 
       def basic
         tickets.map do |ticket|
-          {
-            id: ticket.id,
-            price: ticket.price,
-            seat: ticket.seat
-          }
+          Single.new(ticket).basic
         end
       end
     end

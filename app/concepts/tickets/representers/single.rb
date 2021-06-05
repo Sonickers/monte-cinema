@@ -10,7 +10,7 @@ module Tickets
       def basic
         {
           id: ticket.id,
-          price: ticket.price,
+          price: ticket.ticket_type.price,
           seat: ticket.seat
         }
       end

@@ -1,6 +1,6 @@
 module Reservations
   module UseCases
-    class Create
+    class CreateOffline
       attr_reader :repository, :params
 
       def initialize(params:, repository: Reservations::Repository.new)

@@ -12,7 +12,7 @@ module Movies
           {
             id: movie.id,
             title: movie.title,
-            genre: movie.genre,
+            genre: movie.movie_genre,
             poster_url: movie.poster_url
           }
         end
