@@ -10,24 +10,11 @@ class ReservationsController < ApplicationController
   end
 
   def create_online
-    @reservation = Reservations::UseCases::CreateOnline.new(params: online_params).call
-
-    if @reservation.valid?
-      representation = Reservations::Representers::Single.new(@reservation).extended
-      render json: representation, status: :created, location: @reservation
-    else
-      render json: @reservation.errors, status: :unprocessable_entity
-    end
+    create_by_connection(Reservations::UseCases::CreateOnline, online_params)
   end
 
   def create_offline
-    @reservation = Reservations::UseCases::CreateOffline.new(params: offline_params).call
-
-    if @reservation.valid?
-      render json: @reservation, status: :created, location: @reservation
-    else
-      render json: @reservation.errors, status: :unprocessable_entity
-    end
+    create_by_connection(Reservations::UseCases::CreateOffline, offline_params)
   end
 
   def update
@@ -56,5 +43,17 @@ class ReservationsController < ApplicationController
 
   def offline_params
     params.permit(:reservation_status_id, :seance_id, :ticket_desk_id, tickets: %i[seat ticket_type_id])
+  end
+
+  def create_by_connection(use_case, connection_params)
+    @reservation = use_case.new(params: connection_params).call
+
+    if @reservation.valid?
+      render json: @reservation, status: :created, location: @reservation
+    else
+      render json: @reservation.errors, status: :unprocessable_entity
+    end
+  rescue Tickets::UseCases::Create::SeatsNotAvailableError => e
+    render json: { error: e.message }.to_json, status: :unprocessable_entity
   end
 end
