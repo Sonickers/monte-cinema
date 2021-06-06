@@ -9,7 +9,7 @@ module Reservations
       end
 
       def call
-        repository.create(reservation_params).tap do |reservation|
+        repository.create!(reservation_params).tap do |reservation|
           Tickets::UseCases::Create.new(reservation: reservation, tickets: params[:tickets]).call
         end
       end
