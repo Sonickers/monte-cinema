@@ -30,6 +30,8 @@ group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
 end
 
+gem 'simplecov', require: false, group: :test
+
 group :development do
   gem 'factory_bot_rails'
   gem 'listen', '~> 3.3'

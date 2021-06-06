@@ -47,11 +47,19 @@ RSpec.configure do |config|
 
     create(:ticket_desk, id: 1, connection: 'Online')
     create(:ticket_desk, id: 2, connection: 'Offline')
+
+    create(:ticket_type, id: 1, name: 'Adult', price: 20)
+    create(:ticket_type, id: 2, name: 'Child', price: 10)
+
+    create(:movie_genre, id: 1, name: 'Sci-Fi')
+    create(:movie_genre, id: 2, name: 'Romance')
   end
 
   config.after :all, type: :request do
     ReservationStatus.delete_all
     TicketDesk.delete_all
+    TicketType.delete_all
+    MovieGenre.delete_all
   end
 
   # You can uncomment this line to turn off ActiveRecord support entirely.
