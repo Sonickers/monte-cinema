@@ -5,7 +5,7 @@ module Tickets
     end
 
     def find(id, reservation_id)
-      adapter.where(id: id, reservation_id: reservation_id).first!
+      adapter.find_by!(id: id, reservation_id: reservation_id)
     end
   end
 end
