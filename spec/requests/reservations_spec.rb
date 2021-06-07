@@ -41,8 +41,8 @@ RSpec.describe 'Reservations', type: :request do
     end
 
     context 'when seat is taken' do
-      reservation = create(:reservation, seance_id: seance.id)
-      ticket = create(:ticket, reservation_id: reservation.id)
+      let(:reservation) { create(:reservation, seance_id: seance.id) }
+      let(:ticket) { create(:ticket, reservation_id: reservation.id) }
 
       before { ticket }
 
