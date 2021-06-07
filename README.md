@@ -8,8 +8,8 @@
 
 ### Must have
 Functional requirements:
-- [ ] Endpoint to buy tickets/create reservation from ticket desk
-- [ ] Endpoint to buy tickets/create reservation from online application
+- [x] Endpoint to buy tickets/create reservation from ticket desk
+- [x] Endpoint to buy tickets/create reservation from online application
 - [ ] There should be mechanism (Cronjob? Background job?) to terminate reservation if somebody did not pay ~30 minutes before screening (for reservations created by online application)
 - [ ] There should be email communication provided:
 - [ ] When reservation is created (tickets, seats and price should be attached)
@@ -22,11 +22,11 @@ Functional requirements:
 
 Not functional requirements:
 - [ ] API should be documented 
-- [ ] Application should have provided seeds and should be generally operational
-- [ ] At least 80% of tests coverage
+- [x] Application should have provided seeds and should be generally operational
+- [x] At least 80% of tests coverage
 - [ ] Application should have connected Sentry and CircleCI
 - [ ] Application should be accessible publicly (for instance by Heroku)
-- [ ] Application should have configured rubocop and should fulfill all rubocop requirements.
+- [x] Application should have configured rubocop and should fulfill all rubocop requirements.
 
 Nice to have:
 - [ ] JSON:API endpoint
