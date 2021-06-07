@@ -6,12 +6,7 @@ RSpec.describe 'ReservationsTickets', type: :request do
   let(:seance) { create(:seance, hall_id: hall.id, movie_id: movie.id) }
   let(:reservation) { create(:reservation, seance_id: seance.id) }
 
-  before do
-    movie
-    hall
-    seance
-    reservation
-  end
+  before { reservation }
 
   describe 'GET /tickets' do
     let(:ticket) { create(:ticket, reservation_id: reservation.id) }
