@@ -10,7 +10,7 @@ module Tickets
       end
 
       def call
-        repository.find(id, reservation_id)
+        repository.find(id: id, reservation_id: reservation_id)
       end
     end
   end

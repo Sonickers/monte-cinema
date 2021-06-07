@@ -40,13 +40,17 @@ RSpec.describe 'Reservations', type: :request do
       expect(response.status).to eq(201)
     end
 
-    it 'fails to create a taken seat in reservation and returns status 422' do
+    context 'when seat is taken' do
       reservation = create(:reservation, seance_id: seance.id)
       ticket = create(:ticket, reservation_id: reservation.id)
 
-      post('/reservations/online',
-           params: { seance_id: seance.id, tickets: [{ seat: ticket.seat, ticket_type_id: 1 }] })
-      expect(response.status).to eq(422)
+      before { ticket }
+
+      it 'fails to create a reservation and returns status 422' do
+        post('/reservations/online',
+             params: { seance_id: seance.id, tickets: [{ seat: ticket.seat, ticket_type_id: 1 }] })
+        expect(response.status).to eq(422)
+      end
     end
   end
 
