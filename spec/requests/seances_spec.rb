@@ -10,7 +10,7 @@ RSpec.describe 'Seances', type: :request do
   end
 
   describe 'GET /seances' do
-    let(:seance) { Seance.create(date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id) }
+    let(:seance) { create(:seance, movie_id: movie.id, hall_id: hall.id) }
 
     before { seance }
 
@@ -21,7 +21,7 @@ RSpec.describe 'Seances', type: :request do
   end
 
   describe 'GET /seances/:id' do
-    let(:seance) { Seance.create(date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id) }
+    let(:seance) { create(:seance, movie_id: movie.id, hall_id: hall.id) }
 
     before { seance }
 
@@ -33,23 +33,23 @@ RSpec.describe 'Seances', type: :request do
 
   describe 'POST /seances' do
     it 'creates new seance and returns status 201' do
-      post('/seances', params: { seance: { date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id } })
+      post('/seances', params: { seance: { datetime: '2021-06-01 17:30', movie_id: movie.id, hall_id: hall.id } })
       expect(response.status).to eq(201)
     end
 
     it 'validates movie_id and gives error' do
-      post('/seances', params: { seance: { date: '2021-06-01', time: '17:30', hall_id: hall.id } })
+      post('/seances', params: { seance: { datetime: '2021-06-01 17:30', hall_id: hall.id } })
       expect(response.status).to eq(422)
     end
 
     it 'validates hall_id and gives error' do
-      post('/seances', params: { seance: { date: '2021-06-01', time: '17:30', movie_id: movie.id } })
+      post('/seances', params: { seance: { datetime: '2021-06-01 17:30', movie_id: movie.id } })
       expect(response.status).to eq(422)
     end
   end
 
   describe 'PUT /seances/:id' do
-    let(:seance) { Seance.create(date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id) }
+    let(:seance) { create(:seance, movie_id: movie.id, hall_id: hall.id) }
 
     before { seance }
 
@@ -60,7 +60,7 @@ RSpec.describe 'Seances', type: :request do
   end
 
   describe 'DELETE /seances/:id' do
-    let(:seance) { Seance.create(date: '2021-06-01', time: '17:30', movie_id: movie.id, hall_id: hall.id) }
+    let(:seance) { create(:seance, movie_id: movie.id, hall_id: hall.id) }
 
     before { seance }
 

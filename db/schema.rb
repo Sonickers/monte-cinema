@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_184858) do
   end
 
   create_table "movie_genres", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
   end
 
   create_table "movies", force: :cascade do |t|
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_184858) do
     t.string "poster_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "movie_genre_id"
+    t.bigint "movie_genre_id", null: false
     t.index ["movie_genre_id"], name: "index_movies_on_movie_genre_id"
   end
 
@@ -52,8 +52,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_184858) do
   end
 
   create_table "seances", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
+    t.datetime "datetime"
     t.bigint "hall_id"
     t.bigint "movie_id"
     t.datetime "created_at", precision: 6, null: false
@@ -67,8 +66,8 @@ ActiveRecord::Schema.define(version: 2021_06_04_184858) do
   end
 
   create_table "ticket_types", force: :cascade do |t|
-    t.string "name"
-    t.integer "price"
+    t.string "name", null: false
+    t.decimal "price", precision: 5, scale: 2, null: false
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -76,7 +75,7 @@ ActiveRecord::Schema.define(version: 2021_06_04_184858) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "reservation_id"
-    t.bigint "ticket_type_id"
+    t.bigint "ticket_type_id", null: false
     t.index ["reservation_id"], name: "index_tickets_on_reservation_id"
     t.index ["ticket_type_id"], name: "index_tickets_on_ticket_type_id"
   end

@@ -8,8 +8,7 @@ RSpec.describe 'Seances representers' do
       representation = Seances::Representers::Single.new(seance).basic
       expect(representation).to eq({
                                      id: seance.id,
-                                     time: seance.time,
-                                     date: seance.date,
+                                     datetime: seance.datetime,
                                      movie: seance.movie_id,
                                      hall: seance.hall_id
                                    })
@@ -23,8 +22,7 @@ RSpec.describe 'Seances representers' do
       expect(representations).to eq(
         [{
           id: seance.id,
-          time: seance.time,
-          date: seance.date,
+          datetime: seance.datetime,
           movie: seance.movie_id,
           hall: seance.hall_id
         }]

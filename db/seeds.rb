@@ -59,10 +59,10 @@ movie4 = Movie.create(title: 'Zootopia',
                       poster_url: 'https://upload.wikimedia.org/wikipedia/en/9/96/Zootopia_%28movie_poster%29.jpg')
 
 (0..5).each do |number|
-  Seance.create(movie: movie1, hall: blue, date: '2021-10-01', time: "#{(number * 2) + 10}:00")
-  Seance.create(movie: movie2, hall: green, date: '2021-10-01', time: "#{(number * 2) + 10}:30")
-  Seance.create(movie: movie2, hall: red, date: '2021-10-01', time: "#{(number * 2) + 9}:30")
-  Seance.create(movie: movie3, hall: yellow, date: '2021-10-01', time: "#{(number * 2) + 11}:30")
-  Seance.create(movie: movie4, hall: blue, date: '2021-10-02', time: "#{(number * 2) + 10}:30")
-  Seance.create(movie: movie1, hall: green, date: '2021-10-02', time: "#{(number * 2) + 11}:25")
+  Seance.create(movie: movie1, hall: blue, datetime: "2021-10-01 #{(number * 2) + 10}:00")
+  Seance.create(movie: movie2, hall: green, datetime: "2021-10-01 #{(number * 2) + 10}:30")
+  Seance.create(movie: movie2, hall: red, datetime: "2021-10-01 #{(number * 2) + 9}:30")
+  Seance.create(movie: movie3, hall: yellow, datetime: "2021-10-01 #{(number * 2) + 11}:30")
+  Seance.create(movie: movie4, hall: blue, datetime: "2021-10-02 #{(number * 2) + 10}:30")
+  Seance.create(movie: movie1, hall: green, datetime: "2021-10-02 #{(number * 2) + 11}:25")
 end
