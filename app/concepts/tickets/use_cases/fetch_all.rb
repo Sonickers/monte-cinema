@@ -1,14 +1,15 @@
 module Tickets
   module UseCases
     class FetchAll
-      attr_reader :repository
+      attr_reader :reservation_id, :repository
 
-      def initialize(repository: Tickets::Repository.new)
+      def initialize(reservation_id:, repository: Tickets::Repository.new)
+        @reservation_id = reservation_id
         @repository = repository
       end
 
       def call
-        repository.find_all
+        repository.find_for_reservation_id(reservation_id: reservation_id)
       end
     end
   end

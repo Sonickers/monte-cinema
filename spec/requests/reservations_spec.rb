@@ -33,10 +33,24 @@ RSpec.describe 'Reservations', type: :request do
     end
   end
 
-  describe 'POST /reservations' do
+  describe 'POST /reservations/online' do
     it 'creates new reservation and returns status 201' do
-      post('/reservations', params: { reservation: { seance_id: seance.id, ticket_desk_id: 1 } })
+      post('/reservations/online',
+           params: { seance_id: seance.id, tickets: [{ seat: 'C5', ticket_type_id: 1 }] })
       expect(response.status).to eq(201)
+    end
+
+    context 'when seat is taken' do
+      let(:reservation) { create(:reservation, seance_id: seance.id) }
+      let(:ticket) { create(:ticket, reservation_id: reservation.id) }
+
+      before { ticket }
+
+      it 'fails to create a reservation and returns status 422' do
+        post('/reservations/online',
+             params: { seance_id: seance.id, tickets: [{ seat: ticket.seat, ticket_type_id: 1 }] })
+        expect(response.status).to eq(422)
+      end
     end
   end
 

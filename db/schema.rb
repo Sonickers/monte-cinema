@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_173732) do
+ActiveRecord::Schema.define(version: 2021_06_04_184858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,13 +22,18 @@ ActiveRecord::Schema.define(version: 2021_06_01_173732) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "movie_genres", force: :cascade do |t|
+    t.string "name"
+  end
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
-    t.string "genre"
     t.integer "length"
     t.string "poster_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "movie_genre_id"
+    t.index ["movie_genre_id"], name: "index_movies_on_movie_genre_id"
   end
 
   create_table "reservation_statuses", force: :cascade do |t|
@@ -61,14 +66,19 @@ ActiveRecord::Schema.define(version: 2021_06_01_173732) do
     t.string "connection"
   end
 
-  create_table "tickets", force: :cascade do |t|
+  create_table "ticket_types", force: :cascade do |t|
+    t.string "name"
     t.integer "price"
+  end
+
+  create_table "tickets", force: :cascade do |t|
     t.string "seat"
-    t.string "group"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "reservation_id"
+    t.bigint "ticket_type_id"
     t.index ["reservation_id"], name: "index_tickets_on_reservation_id"
+    t.index ["ticket_type_id"], name: "index_tickets_on_ticket_type_id"
   end
 
 end

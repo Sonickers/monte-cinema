@@ -1,15 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'Seances', type: :request do
-  let(:hall) { Hall.create(name: 'A', seats: 200) }
-  let(:movie) do
-    Movie.create(
-      title: 'Star Wars: Episode IV - A New Hope',
-      length: 150,
-      genre: 'Sci-Fi',
-      poster_url: 'https://upload.wikimedia.org/wikipedia/en/8/87/StarWarsMoviePoster1977.jpg'
-    )
-  end
+  let(:hall) { create(:hall) }
+  let(:movie) { create(:movie) }
 
   before do
     hall
