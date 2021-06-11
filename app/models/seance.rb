@@ -11,6 +11,6 @@ class Seance < ApplicationRecord
   end
 
   def after_confirmation_deadline?
-    Time.now.after?(confirmation_deadline)
+    Time.current.after?(confirmation_deadline)
   end
 end
