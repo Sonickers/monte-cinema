@@ -9,7 +9,8 @@ module Seances
     end
 
     def taken_seats(seance)
-      seance.reservations.flat_map(&:tickets).map(&:seat)
+      seance.reservations.where.not(reservation_status_id: ReservationStatus.cancelled.id)
+            .flat_map(&:tickets).map(&:seat)
     end
   end
 end

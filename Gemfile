@@ -32,6 +32,8 @@ end
 
 gem 'simplecov', require: false, group: :test
 
+gem 'sidekiq'
+
 group :development do
   gem 'factory_bot_rails'
   gem 'listen', '~> 3.3'
