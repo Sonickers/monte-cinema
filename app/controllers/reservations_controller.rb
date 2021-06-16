@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @reservations = Reservations::UseCases::FetchAll.new.call
     render json: Reservations::Representers::List.new(@reservations).basic
