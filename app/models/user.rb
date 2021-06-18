@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   include Devise::JWT::RevocationStrategies::JTIMatcher
 
+  has_many :reservations
+
   enum role: { user: 1, employee: 2, admin: 3 }
 
   devise :database_authenticatable, :registerable,
