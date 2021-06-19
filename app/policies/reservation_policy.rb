@@ -11,7 +11,23 @@ class ReservationPolicy
   end
 
   def show?
-    reservation.user_id == user.id || user.admin?
+    user_owns_reservation?
+  end
+
+  def create_online?
+    true
+  end
+
+  def create_offline?
+    super_user?
+  end
+
+  def update?
+    super_user?
+  end
+
+  def destroy?
+    user_owns_reservation?
   end
 
   class Scope
@@ -23,9 +39,19 @@ class ReservationPolicy
     end
 
     def resolve
-      return scope.all if user.employee? || user.admin?
+      return scope.all if super_user?
 
       scope.where(user_id: user.id)
     end
+  end
+
+  private
+
+  def user_owns_reservation?
+    reservation.user_id == user.id || super_user?
+  end
+
+  def super_user?
+    user.employee? || user.admin?
   end
 end

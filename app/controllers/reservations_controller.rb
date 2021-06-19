@@ -14,14 +14,19 @@ class ReservationsController < ApplicationController
   end
 
   def create_online
+    authorize Reservation
     create_by_connection(Reservations::UseCases::CreateOnline, online_params)
   end
 
   def create_offline
+    authorize Reservation
     create_by_connection(Reservations::UseCases::CreateOffline, offline_params)
   end
 
   def update
+    @reservation = Reservations::Repository.new.find(params[:id])
+    authorize @reservation
+
     @reservation = Reservations::UseCases::Update.new(id: params[:id], params: update_params).call
 
     if @reservation.valid?
@@ -32,6 +37,9 @@ class ReservationsController < ApplicationController
   end
 
   def destroy
+    @reservation = Reservations::Repository.new.find(params[:id])
+    authorize @reservation
+
     Reservations::UseCases::Cancel.new(id: params[:id]).call
   end
 
