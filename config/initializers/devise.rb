@@ -12,6 +12,10 @@ Devise.setup do |config|
   config.jwt do |jwt|
     jwt.secret = Rails.application.credentials.jwt_secret
   end
+
+  config.warden do |manager|
+    manager.failure_app = CustomFailure
+  end
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
