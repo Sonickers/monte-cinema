@@ -3,13 +3,14 @@ class ReservationsController < ApplicationController
 
   def index
     authorize Reservation
-    @reservations = Reservations::UseCases::FetchAll.new.call
+    @reservations = policy_scope(Reservations::UseCases::FetchAll.new.call)
     render json: Reservations::Representers::List.new(@reservations).basic
   end
 
   def show
-    @reservations = Reservations::UseCases::Find.new(id: params[:id]).call
-    render json: Reservations::Representers::Single.new(@reservations).extended
+    @reservation = Reservations::UseCases::Find.new(id: params[:id]).call
+    authorize @reservation
+    render json: Reservations::Representers::Single.new(@reservation).extended
   end
 
   def create_online
