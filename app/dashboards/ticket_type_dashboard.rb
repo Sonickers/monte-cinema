@@ -55,7 +55,7 @@ class TicketTypeDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how ticket types are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(ticket_type)
-  #   "TicketType ##{ticket_type.id}"
-  # end
+  def display_resource(ticket_type)
+    "(##{ticket_type.id}) #{ticket_type.name}"
+  end
 end

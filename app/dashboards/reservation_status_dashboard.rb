@@ -51,7 +51,7 @@ class ReservationStatusDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how reservation statuses are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(reservation_status)
-  #   "ReservationStatus ##{reservation_status.id}"
-  # end
+  def display_resource(reservation_status)
+    "(#{reservation_status.id}) #{reservation_status.name}"
+  end
 end

@@ -55,7 +55,7 @@ class MovieGenreDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how movie genres are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(movie_genre)
-  #   "MovieGenre ##{movie_genre.id}"
-  # end
+  def display_resource(movie_genre)
+    "#{movie_genre.name}"
+  end
 end

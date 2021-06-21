@@ -60,7 +60,7 @@ class HallDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how halls are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(hall)
-  #   "Hall ##{hall.id}"
-  # end
+  def display_resource(hall)
+    "(##{hall.id}) Hall #{hall.name}"
+  end
 end

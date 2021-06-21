@@ -30,7 +30,6 @@ class UserDashboard < Administrate::BaseDashboard
     reservations
     id
     email
-    encrypted_password
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -78,7 +77,7 @@ class UserDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(user)
+    "(#{user.id}) #{user.email}"
+  end
 end
