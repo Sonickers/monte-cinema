@@ -11,14 +11,14 @@ Functional requirements:
 - [x] Endpoint to buy tickets/create reservation from ticket desk
 - [x] Endpoint to buy tickets/create reservation from online application
 - [x] There should be mechanism (Cronjob? Background job?) to terminate reservation if somebody did not pay ~30 minutes before screening (for reservations created by online application)
-- [ ] There should be email communication provided:
+There should be email communication provided:
 - [ ] When reservation is created (tickets, seats and price should be attached)
 - [ ] When reservation is terminated (the reason should be attached)
 - [x] Creating reservation should be robust and there should be validations (for instance - for already taken seats etc., - consider edge cases). 
-- [ ] Application should have implemented authentication (there should be logging by user and by employer)
-- [ ] Application should have authorization in terms of role-based separation
-- [ ] Regular user should have ability to create only online reservation
-- [ ] Employer should have ability to create online reservation but also offline reservation
+- [x] Application should have implemented authentication (there should be logging by user and by employer)
+- [x] Application should have authorization in terms of role-based separation
+- [x] Regular user should have ability to create only online reservation
+- [x] Employer should have ability to create online reservation but also offline reservation
 
 Not functional requirements:
 - [ ] API should be documented 
