@@ -13,6 +13,8 @@ gem 'puma', '~> 5.0'
 gem 'devise'
 gem 'devise-jwt', '~> 0.7.0'
 gem 'pundit'
+gem "sentry-ruby"
+gem "sentry-rails"
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
