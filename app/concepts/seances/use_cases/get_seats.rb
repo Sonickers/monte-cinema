@@ -9,10 +9,7 @@ module Seances
       end
 
       def call
-        {
-          available_seats: repository.available_seats(seance),
-          taken_seats: repository.taken_seats(seance)
-        }
+        Seats.new(available: repository.available_seats(seance), taken: repository.taken_seats(seance))
       end
     end
   end

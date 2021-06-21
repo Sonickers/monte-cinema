@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users, defaults: { format: :json }
   resources :halls, :movies, :seances
 
   resources :reservations, only: %i[index show update destroy] do

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_04_184858) do
+ActiveRecord::Schema.define(version: 2021_06_18_091342) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,9 +46,11 @@ ActiveRecord::Schema.define(version: 2021_06_04_184858) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "ticket_desk_id"
+    t.bigint "user_id"
     t.index ["reservation_status_id"], name: "index_reservations_on_reservation_status_id"
     t.index ["seance_id"], name: "index_reservations_on_seance_id"
     t.index ["ticket_desk_id"], name: "index_reservations_on_ticket_desk_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "seances", force: :cascade do |t|
@@ -78,6 +80,21 @@ ActiveRecord::Schema.define(version: 2021_06_04_184858) do
     t.bigint "ticket_type_id", null: false
     t.index ["reservation_id"], name: "index_tickets_on_reservation_id"
     t.index ["ticket_type_id"], name: "index_tickets_on_ticket_type_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "jti", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "role", default: 1, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["jti"], name: "index_users_on_jti", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end
