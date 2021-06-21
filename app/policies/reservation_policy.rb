@@ -39,7 +39,7 @@ class ReservationPolicy
     end
 
     def resolve
-      return scope.all if super_user?
+      return scope.all if user.employee? || user.admin?
 
       scope.where(user_id: user.id)
     end

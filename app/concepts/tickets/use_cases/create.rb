@@ -21,7 +21,7 @@ module Tickets
 
       def available_seats
         seats = Seances::UseCases::GetSeats.new(seance: reservation.seance).call
-        seats[:available_seats]
+        seats.available
       end
     end
   end
