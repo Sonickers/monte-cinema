@@ -1,0 +1,54 @@
+{
+  "resource": "Reservations",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/reservations/:reservation_id",
+  "description": "Show reservation",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "reservation_id",
+      "description": "ID of the reservation"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/reservations/80",
+      "request_body": null,
+      "request_headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiJhYzcxMmM4Mi05OWJkLTQ1YzktOWJjMi1hYmVlMGNjYzAxOTMiLCJzdWIiOiI2NyIsInNjcCI6InVzZXIiLCJhdWQiOm51bGwsImlhdCI6MTYyNDM4NjY4NywiZXhwIjoxNjI0MzkwMjg3fQ.cGcVClrkpKKLnuIXURNqU_ZZWdiU7S2dHPIpaawM6W8",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 80,\n  \"seance_id\": 138,\n  \"status\": {\n    \"id\": 1,\n    \"name\": \"Booked\"\n  },\n  \"tickets\": [\n    {\n      \"id\": 69,\n      \"price\": \"20.0\",\n      \"type\": \"Adult\",\n      \"seat\": \"D3\"\n    },\n    {\n      \"id\": 70,\n      \"price\": \"20.0\",\n      \"type\": \"Adult\",\n      \"seat\": \"D4\"\n    },\n    {\n      \"id\": 71,\n      \"price\": \"15.0\",\n      \"type\": \"Senior\",\n      \"seat\": \"D5\"\n    }\n  ]\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Download-Options": "noopen",
+        "X-Permitted-Cross-Domain-Policies": "none",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Content-Type": "application/json; charset=utf-8",
+        "Set-Cookie": "_session_id=rUOijr7uBKy8N835OzGUpz1TRL%2FaYkXxIz7YCwaOsF0K6mIe62nwF%2BSnckqJQ0%2Bp8mQgKIZND3WikH2jL9F9kzNvf%2BaLwUJfK5GJJKBtRCktSfoOU4aiKbJpTw2MlOFAnq%2BZBZvw6%2FXfTag1HNwQ5X7Zz52w7pQCRM8QdQY4%2B0iVDOvLfY5DY0jeDxCRnRFwFTWa--sV%2FCfPSRftIBTAa2--ejd9pw1B5iz%2FloRayiBmIQ%3D%3D; path=/; HttpOnly; SameSite=Lax\n_session_id=QE%2BlXCvlZmsoQvzX8YDuNSLuLLNzwlSoJF%2BmtnbR06qEnlQxdQeIMMWsJ3KESHRutaDUZBz35qrldRt7CGeVNS5bWOTySTBS4OKleSdqLpt0oPTxstHEwUbehhD1fu8QFlJmFg469dgu8n4xnb9JSjCnaSI06frGiYFtBUeALfeMj3lW%2B2LbIdT7OyRMxOZmgvOk--KFJubC0X5zmIFzp5--bJoiDfuOJWY3bMN3sSyZYQ%3D%3D; path=/; HttpOnly; SameSite=Lax",
+        "ETag": "W/\"326043bec51bc2a4b336bc76a882b9c4\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "d0870ecf-ed45-45b1-b909-0c94388c46d2",
+        "X-Runtime": "0.023220",
+        "Content-Length": "228"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

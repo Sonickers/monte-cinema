@@ -1,0 +1,48 @@
+{
+  "resource": "Movies",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/movies",
+  "description": "Listing movies",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/movies",
+      "request_body": null,
+      "request_headers": {
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 1,\n    \"title\": \"Harry Potter and the Philosopher's Stone\",\n    \"genre\": {\n      \"id\": 3,\n      \"name\": \"Fantasy\"\n    },\n    \"poster_url\": \"https://images-na.ssl-images-amazon.com/images/I/713KEd-8jyL._AC_SL1500_.jpg\"\n  },\n  {\n    \"id\": 2,\n    \"title\": \"You've got Mail\",\n    \"genre\": {\n      \"id\": 5,\n      \"name\": \"Romance\"\n    },\n    \"poster_url\": \"https://miro.medium.com/max/520/0*JeA6QiQ6BzuNzKHP.jpg\"\n  },\n  {\n    \"id\": 3,\n    \"title\": \"Star Wars Episode IV: A New Hope\",\n    \"genre\": {\n      \"id\": 4,\n      \"name\": \"Sci-Fi\"\n    },\n    \"poster_url\": \"https://img01.mgo-images.com/image/thumbnail/v2/content/MMVD85527F13D6BC8CB6518D4B8DF956FAD2.jpeg\"\n  },\n  {\n    \"id\": 4,\n    \"title\": \"Zootopia\",\n    \"genre\": {\n      \"id\": 6,\n      \"name\": \"Family\"\n    },\n    \"poster_url\": \"https://upload.wikimedia.org/wikipedia/en/9/96/Zootopia_%28movie_poster%29.jpg\"\n  }\n]",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Download-Options": "noopen",
+        "X-Permitted-Cross-Domain-Policies": "none",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Content-Type": "application/json; charset=utf-8",
+        "Set-Cookie": "_session_id=jYKX88EOauRJ7LHWwG6mUjiICLpN7KitEivRENwFoAfmCi4tGNI0q6SGxARKZfxPZgStJfcXEfguisCk4ZNzm%2BmC6wn6quBae8ME7ZgRAskFe8HHRJUK2ET%2BMYqsgi81m1UnQhavgzoMS%2FHAb8RMvoSQ67KOeXlwJ%2FwXHYewBGtORAlenGnXXpnnZoYVdDb0TPQ3--u0ffeasVgqm1McLc--0SQZkQn%2BpeQyGiIc9gYB0g%3D%3D; path=/; HttpOnly; SameSite=Lax\n_session_id=CBRtz2cs3jbqXC48Z8Cma1RRloVcRfzLyKIWXXgmRoYGwgX7rf8DfTjaG94nU2MW9m0LFlApF6GpW%2BB0C3%2F1xIwhoNUzKUw1GMp6%2Bd8wlCETMXBMszvZf%2B9y%2FeaEQRFGvPSHhCMKcyuOii8FJgYJBFQJnoM5yUmCN6X1nXll%2Bvn1e8BsI587LlWl7JrovhPqPYnM--hK6mDIrH%2BMAXXPax--sRN%2FyTmR9Ubcezalh2G%2BVg%3D%3D; path=/; HttpOnly; SameSite=Lax",
+        "ETag": "W/\"629aa59aa844119b949d8e565effc998\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "f83583ae-c4f6-482b-901e-8558d46745fd",
+        "X-Runtime": "0.038498",
+        "Content-Length": "679"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
