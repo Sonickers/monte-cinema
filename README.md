@@ -1,10 +1,20 @@
 # 🍿 MONTE CINEMA API 🎥
 
 ### Technologies
-- Rails 6
-- Ruby 3.0
-- Postgresql
-- RSpec
+- Rails 6.1.3
+- Ruby 3.0.1
+- Postgresql 1.1
+- Redis 6.2.4
+- RSpec 5.0.0
+
+### Setup
+To run this project:
+1. `bundle install`
+2. `rails db:setup`
+3. `rails server`
+
+### Documentation
+API's documentation is generated with `rspec_api_documentation` and `apitome` and it's based in `/api/docs`. To generate it use `rails docs:generate`
 
 ### Must have
 Functional requirements:
@@ -21,7 +31,7 @@ Functional requirements:
 - [x] Employer should have ability to create online reservation but also offline reservation
 
 Not functional requirements:
-- [ ] API should be documented 
+- [x] API should be documented 
 - [x] Application should have provided seeds and should be generally operational
 - [x] At least 80% of tests coverage
 - [x] Application should have connected Sentry and CircleCI

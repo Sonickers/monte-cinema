@@ -1,0 +1,50 @@
+{
+  "resource": "Reservations",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/reservations",
+  "description": "Listing reservations",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/reservations",
+      "request_body": null,
+      "request_headers": {
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2NTBiMDk0NS0yMTM4LTRlNzQtYWVmNS1mZjlmMWM3M2U0MzkiLCJzdWIiOiI2NiIsInNjcCI6InVzZXIiLCJhdWQiOm51bGwsImlhdCI6MTYyNDM4NjY4NywiZXhwIjoxNjI0MzkwMjg3fQ.oom-ZDZAl9BardxOXqrwrfheouX2SiKMWs5pQqq4uz0",
+        "Content-Type": "application/json",
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": "application/json",
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 79,\n    \"seance_id\": 137,\n    \"status\": {\n      \"id\": 1,\n      \"name\": \"Booked\"\n    }\n  }\n]",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Download-Options": "noopen",
+        "X-Permitted-Cross-Domain-Policies": "none",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Content-Type": "application/json; charset=utf-8",
+        "Set-Cookie": "_session_id=rBZ%2BIjGbL3pVWXk09rlPtMq3O6HA1BRMtT6GwXV%2FNq1l8N%2B6ENNtVTLwiIaBjtBaywpEexRZlpv9caRkjJ6HIMco7aX2qN6M2CGQ4aO53AFx2scK5VA2lGFurjbTm71xpZAOxrYLDKYD97BKuesqxw59vLi1oeE1Hgdwx33VMyw30s72xXKIeBAzeOctbthQL57G--sOUmqCVkVH%2FYQ4NU--IXbO3ICFXgxduvuTbxmPng%3D%3D; path=/; HttpOnly; SameSite=Lax\n_session_id=Bv70erUwqfSmX9wdWhKyv5vKDvbNS6VOnMM6JK%2BNJbkPjEMTcQLOBSr2pszy8af2y12czXeGbRsNp9hgY1LVKm6WPanYH7rVBfavrFsCjsYu5M8%2FvTpb3CeCS4rPMUz%2B0qNDV3eByM5sreVu11kyqyiIesE9eA4365vLu7ef5Pmr%2BMA%2FOY1Vtf9Q5vA3XyVHMNsu--etLB6OT7I9Om3XZM--cqJOMmAhEbQxaDokgEbuNA%3D%3D; path=/; HttpOnly; SameSite=Lax",
+        "ETag": "W/\"ee7eec87dcc833c59c1e29d3061bec94\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "708f6354-ab82-43f4-862d-6af9237ebbd5",
+        "X-Runtime": "0.021760",
+        "Content-Length": "61"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

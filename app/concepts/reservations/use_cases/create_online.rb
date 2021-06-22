@@ -23,7 +23,8 @@ module Reservations
         {
           seance_id: params[:seance_id],
           reservation_status: ReservationStatus.booked,
-          ticket_desk: TicketDesk.online
+          ticket_desk: TicketDesk.online,
+          user_id: params[:user].id
         }
       end
 

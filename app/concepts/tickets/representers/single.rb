@@ -11,6 +11,7 @@ module Tickets
         {
           id: ticket.id,
           price: ticket.ticket_type.price,
+          type: ticket.ticket_type.name,
           seat: ticket.seat
         }
       end
