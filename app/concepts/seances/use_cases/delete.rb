@@ -1,8 +1,6 @@
 module Seances
   module UseCases
     class Delete
-      attr_reader :repository
-
       def initialize(repository: Seances::Repository.new)
         @repository = repository
       end
@@ -10,6 +8,10 @@ module Seances
       def call(id:)
         repository.delete(id)
       end
+
+      private
+
+      attr_reader :repository
     end
   end
 end

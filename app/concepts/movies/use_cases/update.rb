@@ -1,8 +1,6 @@
 module Movies
   module UseCases
     class Update
-      attr_reader :repository
-
       def initialize(repository: Movies::Repository.new)
         @repository = repository
       end
@@ -10,6 +8,10 @@ module Movies
       def call(id:, params:)
         repository.update(id, params)
       end
+
+      private
+
+      attr_reader :repository
     end
   end
 end

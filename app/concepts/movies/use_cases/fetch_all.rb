@@ -1,8 +1,6 @@
 module Movies
   module UseCases
     class FetchAll
-      attr_reader :repository
-
       def initialize(repository: Movies::Repository.new)
         @repository = repository
       end
@@ -10,6 +8,10 @@ module Movies
       def call
         repository.find_all
       end
+
+      private
+
+      attr_reader :repository
     end
   end
 end

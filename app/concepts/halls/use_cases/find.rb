@@ -1,8 +1,6 @@
 module Halls
   module UseCases
     class Find
-      attr_reader :repository
-
       def initialize(repository: Halls::Repository.new)
         @repository = repository
       end
@@ -10,6 +8,10 @@ module Halls
       def call(id:)
         repository.find(id)
       end
+
+      private
+
+      attr_reader :repository
     end
   end
 end

@@ -1,8 +1,6 @@
 module Seances
   module UseCases
     class Update
-      attr_reader :repository
-
       def initialize(repository: Seances::Repository.new)
         @repository = repository
       end
@@ -10,6 +8,10 @@ module Seances
       def call(id:, params:)
         repository.update(id, params)
       end
+
+      private
+
+      attr_reader :repository
     end
   end
 end

@@ -1,8 +1,6 @@
 module Reservations
   module UseCases
     class CreateOnline
-      attr_reader :repository, :params
-
       def initialize(params:, repository: Reservations::Repository.new)
         @repository = repository
         @params = params
@@ -18,6 +16,8 @@ module Reservations
       end
 
       private
+
+      attr_reader :repository, :params
 
       def reservation_params
         {

@@ -1,8 +1,6 @@
 module Tickets
   module UseCases
     class Find
-      attr_reader :repository, :id, :reservation_id
-
       def initialize(id:, reservation_id:, repository: Tickets::Repository.new)
         @repository = repository
         @id = id
@@ -12,6 +10,10 @@ module Tickets
       def call
         repository.find(id: id, reservation_id: reservation_id)
       end
+
+      private
+
+      attr_reader :repository, :id, :reservation_id
     end
   end
 end
