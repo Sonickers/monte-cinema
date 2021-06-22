@@ -16,6 +16,8 @@ gem 'pundit'
 gem "sentry-ruby"
 gem "sentry-rails"
 
+gem 'administrate'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production

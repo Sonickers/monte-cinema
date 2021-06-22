@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :users
+      resources :ticket_types
+      resources :reservation_statuses
+      resources :seances
+      resources :movies
+      resources :ticket_desks
+      resources :halls
+      resources :movie_genres
+      resources :tickets
+      resources :reservations
+
+      root to: "users#index"
+    end
   devise_for :users, defaults: { format: :json }
   resources :halls, :movies, :seances
 
