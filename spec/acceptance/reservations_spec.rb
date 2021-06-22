@@ -18,7 +18,7 @@ resource 'Reservations' do
 
   before do
     header 'Authorization', auth_headers['Authorization']
-    header "Content-Type", "application/json"
+    header 'Content-Type', 'application/json'
   end
 
   get '/reservations' do
