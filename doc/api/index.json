@@ -1,0 +1,91 @@
+{
+  "resources": [
+    {
+      "name": "Halls",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Listing halls",
+          "link": "halls/listing_halls.json",
+          "groups": "all",
+          "route": "/halls",
+          "method": "get"
+        },
+        {
+          "description": "Show hall",
+          "link": "halls/show_hall.json",
+          "groups": "all",
+          "route": "/halls/:hall_id",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Movies",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Listing movies",
+          "link": "movies/listing_movies.json",
+          "groups": "all",
+          "route": "/movies",
+          "method": "get"
+        },
+        {
+          "description": "Show movie",
+          "link": "movies/show_movie.json",
+          "groups": "all",
+          "route": "/movies/:movie_id",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Reservations",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Book reservation online",
+          "link": "reservations/book_reservation_online.json",
+          "groups": "all",
+          "route": "/reservations/online",
+          "method": "post"
+        },
+        {
+          "description": "Listing reservations",
+          "link": "reservations/listing_reservations.json",
+          "groups": "all",
+          "route": "/reservations",
+          "method": "get"
+        },
+        {
+          "description": "Show reservation",
+          "link": "reservations/show_reservation.json",
+          "groups": "all",
+          "route": "/reservations/:reservation_id",
+          "method": "get"
+        }
+      ]
+    },
+    {
+      "name": "Seances",
+      "explanation": null,
+      "examples": [
+        {
+          "description": "Listing seances",
+          "link": "seances/listing_seances.json",
+          "groups": "all",
+          "route": "/seances",
+          "method": "get"
+        },
+        {
+          "description": "Show seance",
+          "link": "seances/show_seance.json",
+          "groups": "all",
+          "route": "/seances/:seance_id",
+          "method": "get"
+        }
+      ]
+    }
+  ]
+}

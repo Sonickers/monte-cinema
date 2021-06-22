@@ -1,0 +1,48 @@
+{
+  "resource": "Halls",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/halls",
+  "description": "Listing halls",
+  "explanation": null,
+  "parameters": [
+
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/halls",
+      "request_body": null,
+      "request_headers": {
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Blue\",\n    \"seats\": 200\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Green\",\n    \"seats\": 100\n  },\n  {\n    \"id\": 3,\n    \"name\": \"Red\",\n    \"seats\": 100\n  },\n  {\n    \"id\": 4,\n    \"name\": \"Yellow\",\n    \"seats\": 100\n  },\n  {\n    \"id\": 5,\n    \"name\": \"Purple\",\n    \"seats\": 100\n  },\n  {\n    \"id\": 6,\n    \"name\": \"Teal\",\n    \"seats\": 50\n  },\n  {\n    \"id\": 7,\n    \"name\": \"Pink\",\n    \"seats\": 50\n  },\n  {\n    \"id\": 8,\n    \"name\": \"Lavender\",\n    \"seats\": 50\n  },\n  {\n    \"id\": 9,\n    \"name\": \"Orange\",\n    \"seats\": 50\n  },\n  {\n    \"id\": 10,\n    \"name\": \"Violet\",\n    \"seats\": 20\n  }\n]",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Download-Options": "noopen",
+        "X-Permitted-Cross-Domain-Policies": "none",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Content-Type": "application/json; charset=utf-8",
+        "Set-Cookie": "_session_id=kl%2B4gov0MtuxN6RvjzIGnqLIklLh46WEpJjL7Sl8q8nBejrZbUzf7KViLdDLs%2FaE1qFFz%2F4GyfDyE6XHpjGV4hZZJKX7M1HxdGO8FOrsaETw%2BMkQvDCwaloFNHiDTVp9QcLRgPYL0bB4VwLbbP5%2BObmNQiEN3T58Dfb6tZQGGZQYiuAsbIgqOo6GYd766E0utFNT--h2ajGa8SXTQDtreA--Tz3FJVE3X%2FG%2FUfBmo%2FwhfA%3D%3D; path=/; HttpOnly; SameSite=Lax\n_session_id=7%2FO9HHRe4oGh4JRJKnZPAhcSUSVEdRBc5H4DewbFwLrEbdeVnDps%2BSbIas9CmElD2h8nCZ6RL0P6DZqQzdo%2BhLm4GzP7cC0nb91TP5mCKJFYLmD%2BRbXg7Xpz4yGUWXJSIRkz1vPcpBGlb0r4WTKlcul4Jhq19Q%2B1aYkB77AqUJrLeXtNMDjs%2Fli1MFJmPo8FM%2FhR--WU3Dcl1EoLE2p0Wb--nZVkNPsxAfy3ypEI%2F%2B5k2g%3D%3D; path=/; HttpOnly; SameSite=Lax",
+        "ETag": "W/\"a71aeac0955e6bdf80c79b4e2f77742f\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "8a1a5b52-289f-40ee-bb47-32c387c9e810",
+        "X-Runtime": "0.053584",
+        "Content-Length": "359"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}

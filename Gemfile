@@ -13,8 +13,8 @@ gem 'puma', '~> 5.0'
 gem 'devise'
 gem 'devise-jwt', '~> 0.7.0'
 gem 'pundit'
-gem "sentry-ruby"
-gem "sentry-rails"
+gem 'sentry-rails'
+gem 'sentry-ruby'
 
 gem 'administrate'
 
@@ -42,6 +42,9 @@ end
 gem 'simplecov', require: false, group: :test
 
 gem 'sidekiq'
+
+gem 'apitome'
+gem 'rspec_api_documentation'
 
 group :development do
   gem 'factory_bot_rails'

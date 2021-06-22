@@ -1,0 +1,52 @@
+{
+  "resource": "Seances",
+  "resource_explanation": null,
+  "http_method": "GET",
+  "route": "/seances/:seance_id",
+  "description": "Show seance",
+  "explanation": null,
+  "parameters": [
+    {
+      "required": true,
+      "name": "seance_id",
+      "description": "ID of the seance"
+    }
+  ],
+  "response_fields": [
+
+  ],
+  "requests": [
+    {
+      "request_method": "GET",
+      "request_path": "/seances/1",
+      "request_body": null,
+      "request_headers": {
+        "Host": "example.org",
+        "Cookie": ""
+      },
+      "request_query_parameters": {
+      },
+      "request_content_type": null,
+      "response_status": 200,
+      "response_status_text": "OK",
+      "response_body": "{\n  \"id\": 1,\n  \"datetime\": \"2021-10-01T10:00:00.000Z\",\n  \"movie\": 1,\n  \"hall\": 1,\n  \"available_seats\": [\n    \"A1\",\n    \"A2\",\n    \"A3\",\n    \"A4\",\n    \"A5\",\n    \"A6\",\n    \"A7\",\n    \"A8\",\n    \"A9\",\n    \"A10\",\n    \"B1\",\n    \"B2\",\n    \"B3\",\n    \"B4\",\n    \"B5\",\n    \"B6\",\n    \"B7\",\n    \"B8\",\n    \"B9\",\n    \"B10\",\n    \"C1\",\n    \"C2\",\n    \"C3\",\n    \"C4\",\n    \"C5\",\n    \"C6\",\n    \"C7\",\n    \"C8\",\n    \"C9\",\n    \"C10\",\n    \"D1\",\n    \"D2\",\n    \"D3\",\n    \"D4\",\n    \"D5\",\n    \"D6\",\n    \"D7\",\n    \"D8\",\n    \"D9\",\n    \"D10\",\n    \"E1\",\n    \"E2\",\n    \"E3\",\n    \"E4\",\n    \"E5\",\n    \"E6\",\n    \"E7\",\n    \"E8\",\n    \"E9\",\n    \"E10\",\n    \"F1\",\n    \"F2\",\n    \"F3\",\n    \"F4\",\n    \"F5\",\n    \"F6\",\n    \"F7\",\n    \"F8\",\n    \"F9\",\n    \"F10\",\n    \"G1\",\n    \"G2\",\n    \"G3\",\n    \"G4\",\n    \"G5\",\n    \"G6\",\n    \"G7\",\n    \"G8\",\n    \"G9\",\n    \"G10\",\n    \"H1\",\n    \"H2\",\n    \"H3\",\n    \"H4\",\n    \"H5\",\n    \"H6\",\n    \"H7\",\n    \"H8\",\n    \"H9\",\n    \"H10\",\n    \"I1\",\n    \"I2\",\n    \"I3\",\n    \"I4\",\n    \"I5\",\n    \"I6\",\n    \"I7\",\n    \"I8\",\n    \"I9\",\n    \"I10\",\n    \"J1\",\n    \"J2\",\n    \"J3\",\n    \"J4\",\n    \"J5\",\n    \"J6\",\n    \"J7\",\n    \"J8\",\n    \"J9\",\n    \"J10\",\n    \"K1\",\n    \"K2\",\n    \"K3\",\n    \"K4\",\n    \"K5\",\n    \"K6\",\n    \"K7\",\n    \"K8\",\n    \"K9\",\n    \"K10\",\n    \"L1\",\n    \"L2\",\n    \"L3\",\n    \"L4\",\n    \"L5\",\n    \"L6\",\n    \"L7\",\n    \"L8\",\n    \"L9\",\n    \"L10\",\n    \"M1\",\n    \"M2\",\n    \"M3\",\n    \"M4\",\n    \"M5\",\n    \"M6\",\n    \"M7\",\n    \"M8\",\n    \"M9\",\n    \"M10\",\n    \"N1\",\n    \"N2\",\n    \"N3\",\n    \"N4\",\n    \"N5\",\n    \"N6\",\n    \"N7\",\n    \"N8\",\n    \"N9\",\n    \"N10\",\n    \"O1\",\n    \"O2\",\n    \"O3\",\n    \"O4\",\n    \"O5\",\n    \"O6\",\n    \"O7\",\n    \"O8\",\n    \"O9\",\n    \"O10\",\n    \"P1\",\n    \"P2\",\n    \"P3\",\n    \"P4\",\n    \"P5\",\n    \"P6\",\n    \"P7\",\n    \"P8\",\n    \"P9\",\n    \"P10\",\n    \"Q1\",\n    \"Q2\",\n    \"Q3\",\n    \"Q4\",\n    \"Q5\",\n    \"Q6\",\n    \"Q7\",\n    \"Q8\",\n    \"Q9\",\n    \"Q10\",\n    \"R1\",\n    \"R2\",\n    \"R3\",\n    \"R4\",\n    \"R5\",\n    \"R6\",\n    \"R7\",\n    \"R8\",\n    \"R9\",\n    \"R10\",\n    \"S1\",\n    \"S2\",\n    \"S3\",\n    \"S4\",\n    \"S5\",\n    \"S6\",\n    \"S7\",\n    \"S8\",\n    \"S9\",\n    \"S10\",\n    \"T1\",\n    \"T2\",\n    \"T3\",\n    \"T4\",\n    \"T5\",\n    \"T6\",\n    \"T7\",\n    \"T8\",\n    \"T9\",\n    \"T10\"\n  ],\n  \"taken_seats\": [\n\n  ]\n}",
+      "response_headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "X-Download-Options": "noopen",
+        "X-Permitted-Cross-Domain-Policies": "none",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Content-Type": "application/json; charset=utf-8",
+        "Set-Cookie": "_session_id=ajGi4l0G2dvl490OAzf6NKwTSMln7%2Bq3aX98MwSYuRtOBpx3q8fNgcA3ZXfFKIO9kmdDrLnyJy%2BgmO7FnlOh6XRGYSTnRRHhBd9ZQpASDO4bIwBdR6lT7DqwRzKxse8sjP8vU8p3zz1uRIl7BkDphE475pmxJv4XlXHp2SOyQCff6OtuPEMe61kHcgtB4Xh7yfhF--fl57N0zAkpL%2Fg9I7--9grHy3SlSjfM6twEJUGpoA%3D%3D; path=/; HttpOnly; SameSite=Lax\n_session_id=Z5yidnRmU%2FONruCSyMON0lA2ilDXJwwq6AvboFgnVSCmgKlyYgYemvoDashRxSSVtyQf9SWwLmLRlsFJQJLVb6yKdyUQdYNemLLxjx7fgcOWzIIltcYBqM9qn9qVZb89Z7%2Fn1nwTJNaQPIpg7BxgNlWdVgHJWTSpvKnQ8W9ems8XxyWDX%2B0dBuGdNAvKERV9XlGq--QPost5ujsllqM4NI--MbZoN8%2BESSkCikVLc98PPQ%3D%3D; path=/; HttpOnly; SameSite=Lax",
+        "ETag": "W/\"0eae7d23c84706a94e6679e4585eaa9e\"",
+        "Cache-Control": "max-age=0, private, must-revalidate",
+        "X-Request-Id": "09b67211-c5dd-440e-8d89-7c28ea42e025",
+        "X-Runtime": "0.017864",
+        "Content-Length": "1122"
+      },
+      "response_content_type": "application/json; charset=utf-8",
+      "curl": null
+    }
+  ]
+}
