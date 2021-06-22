@@ -1,10 +1,19 @@
 # 🍿 MONTE CINEMA API 🎥
 
 ### Technologies
-- Rails 6
-- Ruby 3.0
-- Postgresql
-- RSpec
+- Rails 6.1.3
+- Ruby 3.0.1
+- Postgresql 1.1
+- RSpec 5.0.0
+
+### Setup
+To run this project:
+1. `bundle install`
+2. `rails db:setup`
+3. `rails server`
+
+### Documentation
+API's documentation is generated with `rspec_api_documentation` and `apitome` and it's based in `/api/docs`. To generate it use `rails docs:generate`
 
 ### Must have
 Functional requirements:
