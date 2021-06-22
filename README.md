@@ -4,6 +4,7 @@
 - Rails 6.1.3
 - Ruby 3.0.1
 - Postgresql 1.1
+- Redis 6.2.4
 - RSpec 5.0.0
 
 ### Setup
