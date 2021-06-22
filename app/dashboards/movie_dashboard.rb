@@ -1,4 +1,4 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class MovieDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
@@ -8,19 +8,19 @@ class MovieDashboard < Administrate::BaseDashboard
     length: Field::Number,
     poster_url: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   COLLECTION_ATTRIBUTES = %i[
-    movie_genre
     id
+    movie_genre
     title
     length
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = %i[
-    movie_genre
     id
+    movie_genre
     title
     length
     poster_url
@@ -38,7 +38,6 @@ class MovieDashboard < Administrate::BaseDashboard
   COLLECTION_FILTERS = {}.freeze
 
   def display_resource(movie)
-    "#{movie.title}"
+    movie.title.to_s
   end
 end
-Ś

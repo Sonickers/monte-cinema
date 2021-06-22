@@ -19,6 +19,7 @@ class UserDashboard < Administrate::BaseDashboard
     reservations
     id
     email
+    role
   ].freeze
 
   SHOW_PAGE_ATTRIBUTES = %i[
@@ -38,11 +39,7 @@ class UserDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = %i[
     reservations
     email
-    encrypted_password
     jti
-    reset_password_token
-    reset_password_sent_at
-    remember_created_at
     role
   ].freeze
 

@@ -13,6 +13,7 @@ class ReservationDashboard < Administrate::BaseDashboard
   }.freeze
 
   COLLECTION_ATTRIBUTES = %i[
+    id
     seance
     reservation_status
     ticket_desk

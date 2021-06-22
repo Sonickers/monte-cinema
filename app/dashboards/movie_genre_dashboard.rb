@@ -1,10 +1,10 @@
-require "administrate/base_dashboard"
+require 'administrate/base_dashboard'
 
 class MovieGenreDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     movies: Field::HasMany,
     id: Field::Number,
-    name: Field::String,
+    name: Field::String
   }.freeze
 
   COLLECTION_ATTRIBUTES = %i[
@@ -27,6 +27,6 @@ class MovieGenreDashboard < Administrate::BaseDashboard
   COLLECTION_FILTERS = {}.freeze
 
   def display_resource(movie_genre)
-    "#{movie_genre.name}"
+    movie_genre.name.to_s
   end
 end

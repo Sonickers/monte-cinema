@@ -15,7 +15,7 @@ class ReservationsController < ApplicationController
 
   def create_online
     authorize Reservation
-    create_by_connection(Reservations::UseCases::CreateOnline, online_params)
+    create_by_connection(Reservations::UseCases::CreateOnline, online_params.merge(user: current_user))
   end
 
   def create_offline
