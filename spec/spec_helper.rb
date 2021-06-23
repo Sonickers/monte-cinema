@@ -6,6 +6,7 @@ require 'sidekiq/testing'
 Sidekiq::Testing.fake!
 
 SimpleCov.start 'rails' do
+  add_filter '/channels/'
   add_filter '/dashboards/'
   add_filter '/controllers/admin/'
 end
