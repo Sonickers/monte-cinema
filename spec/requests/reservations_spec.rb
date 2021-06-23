@@ -2,13 +2,16 @@ require 'rails_helper'
 
 RSpec.describe 'Reservations', type: :request do
   let(:user) { create(:user) }
+  let(:employee) { create(:user, email: 'employee@example.com', role: 2) }
   let(:auth_headers) { Devise::JWT::TestHelpers.auth_headers({}, user) }
+  let(:employee_auth_headers) { Devise::JWT::TestHelpers.auth_headers({}, employee) }
   let(:movie) { create(:movie) }
   let(:hall) { create(:hall) }
   let(:seance) { create(:seance, hall_id: hall.id, movie_id: movie.id) }
 
   before do
     auth_headers
+    employee_auth_headers
     seance
   end
 
@@ -57,6 +60,20 @@ RSpec.describe 'Reservations', type: :request do
     end
   end
 
+  describe 'POST /reservations/offline' do
+    it 'creates new reservation and returns status 201' do
+      post('/reservations/offline',
+           headers: employee_auth_headers,
+           params: {
+             seance_id: seance.id,
+             reservation_status_id: 2,
+             ticket_desk_id: 3,
+             tickets: [{ seat: 'F4', ticket_type_id: 2 }]
+           })
+      expect(response.status).to eq(201)
+    end
+  end
+
   describe 'PUT /reservations/:id' do
     let(:reservation) { create(:reservation, seance_id: seance.id) }
 
@@ -67,6 +84,23 @@ RSpec.describe 'Reservations', type: :request do
         put("/reservations/#{reservation.id}", headers: auth_headers,
                                                params: { reservation: { reservation_status_id: 2 } })
       end.to raise_error(Pundit::NotAuthorizedError)
+    end
+
+    it 'updates the reservation status when user is an employee' do
+      put("/reservations/#{reservation.id}", headers: employee_auth_headers,
+                                             params: { reservation: { reservation_status_id: 2 } })
+
+      expect(response.status).to eq(200)
+    end
+
+    it 'updates the reservation status when user is an admin' do
+      admin = create(:user, email: 'admin@example.com', role: 3)
+      admin_auth_headers = Devise::JWT::TestHelpers.auth_headers({}, admin)
+
+      put("/reservations/#{reservation.id}", headers: admin_auth_headers,
+                                             params: { reservation: { reservation_status_id: 3 } })
+
+      expect(response.status).to eq(200)
     end
   end
 
