@@ -1,3 +1,4 @@
+
 # 🍿 MONTE CINEMA API 🎥
 
 ### Technologies
@@ -18,6 +19,7 @@ API's documentation is generated with `rspec_api_documentation` and `apitome` an
 
 ### Admin
 A general admin panel (powered by [administrate](https://github.com/thoughtbot/administrate)) can be accessed at http://localhost:3000/admin
+<img width="1436" alt="122821517-3bee2400-d2dd-11eb-9787-a46ca912f919" src="https://user-images.githubusercontent.com/35639449/123091657-e83d2100-d429-11eb-99fd-fbc1d8716c98.png">
 
 ### Production
 The API is accessible at the following URL: https://monte-cinema-app.herokuapp.com/
