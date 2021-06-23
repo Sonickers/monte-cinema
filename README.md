@@ -16,6 +16,12 @@ To run this project:
 ### Documentation
 API's documentation is generated with `rspec_api_documentation` and `apitome` and it's based in `/api/docs`. To generate it use `rails docs:generate`
 
+### Admin
+A general admin panel (powered by [administrate](https://github.com/thoughtbot/administrate)) can be accessed at http://localhost:3000/admin
+
+### Production
+The API is accessible at the following URL: https://monte-cinema-app.herokuapp.com/
+
 ### Must have
 Functional requirements:
 - [x] Endpoint to buy tickets/create reservation from ticket desk
@@ -35,7 +41,7 @@ Not functional requirements:
 - [x] Application should have provided seeds and should be generally operational
 - [x] At least 80% of tests coverage
 - [x] Application should have connected Sentry and CircleCI
-- [ ] Application should be accessible publicly (for instance by Heroku)
+- [x] Application should be accessible publicly (for instance by Heroku)
 - [x] Application should have configured rubocop and should fulfill all rubocop requirements.
 
 Nice to have:
