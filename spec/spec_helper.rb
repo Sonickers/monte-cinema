@@ -2,7 +2,10 @@ require 'simplecov'
 require 'devise/jwt/test_helpers'
 require 'rspec_api_documentation'
 
-SimpleCov.start 'rails'
+SimpleCov.start 'rails' do
+  add_filter '/dashboards/'
+  add_filter '/controllers/admin/'
+end
 
 RspecApiDocumentation.configure do |config|
   config.format = :json
