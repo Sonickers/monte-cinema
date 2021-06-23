@@ -1,6 +1,9 @@
 require 'simplecov'
 require 'devise/jwt/test_helpers'
 require 'rspec_api_documentation'
+require 'sidekiq/testing'
+
+Sidekiq::Testing.fake!
 
 SimpleCov.start 'rails' do
   add_filter '/dashboards/'
