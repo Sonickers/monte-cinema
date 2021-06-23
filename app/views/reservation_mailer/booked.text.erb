@@ -1,0 +1,10 @@
+Thank you for your choosing MonteCinema!
+===================================================
+
+Booked tickets for '<%= @movie.title %>':
+
+<% @tickets.each do |ticket| %>
+    Seat: <%= ticket.seat%> - Price: $<%= ticket.ticket_type.price%> - Type: <%= ticket.ticket_type.name%>
+<% end %>
+
+Screening: <%= @seance.datetime %>
