@@ -41,7 +41,7 @@ RSpec.describe 'Reservations', type: :request do
     it 'creates new reservation and returns status 201' do
       post('/reservations/online',
            headers: auth_headers,
-           params: { seance_id: seance.id, tickets: [{ seat: 'C5', ticket_type_id: 1 }] })
+           params: { seance_id: seance.id, tickets: [{ seat: 'C5', ticket_type_id: TicketType.adult.id }] })
       expect(response.status).to eq(201)
     end
 
@@ -54,7 +54,7 @@ RSpec.describe 'Reservations', type: :request do
       it 'fails to create a reservation and returns status 422' do
         post('/reservations/online',
              headers: auth_headers,
-             params: { seance_id: seance.id, tickets: [{ seat: ticket.seat, ticket_type_id: 1 }] })
+             params: { seance_id: seance.id, tickets: [{ seat: ticket.seat, ticket_type_id: TicketType.adult.id }] })
         expect(response.status).to eq(422)
       end
     end
@@ -66,9 +66,9 @@ RSpec.describe 'Reservations', type: :request do
            headers: employee_auth_headers,
            params: {
              seance_id: seance.id,
-             reservation_status_id: 2,
+             reservation_status_id: ReservationStatus.confirmed.id,
              ticket_desk_id: 3,
-             tickets: [{ seat: 'F4', ticket_type_id: 2 }]
+             tickets: [{ seat: 'F4', ticket_type_id: TicketType.child.id }]
            })
       expect(response.status).to eq(201)
     end
@@ -82,13 +82,17 @@ RSpec.describe 'Reservations', type: :request do
     it 'returns unauthorized error for regular users' do
       expect do
         put("/reservations/#{reservation.id}", headers: auth_headers,
-                                               params: { reservation: { reservation_status_id: 2 } })
+                                               params: { reservation: {
+                                                 reservation_status_id: ReservationStatus.confirmed.id
+                                               } })
       end.to raise_error(Pundit::NotAuthorizedError)
     end
 
     it 'updates the reservation status when user is an employee' do
       put("/reservations/#{reservation.id}", headers: employee_auth_headers,
-                                             params: { reservation: { reservation_status_id: 2 } })
+                                             params: { reservation: {
+                                               reservation_status_id: ReservationStatus.confirmed.id
+                                             } })
 
       expect(response.status).to eq(200)
     end
@@ -98,7 +102,9 @@ RSpec.describe 'Reservations', type: :request do
       admin_auth_headers = Devise::JWT::TestHelpers.auth_headers({}, admin)
 
       put("/reservations/#{reservation.id}", headers: admin_auth_headers,
-                                             params: { reservation: { reservation_status_id: 3 } })
+                                             params: { reservation: {
+                                               reservation_status_id: ReservationStatus.cancelled.id
+                                             } })
 
       expect(response.status).to eq(200)
     end
