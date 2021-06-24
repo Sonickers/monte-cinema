@@ -6,6 +6,8 @@ class Reservation < ApplicationRecord
 
   has_many :tickets
 
+  delegate :movie, to: :seance
+
   def expired?
     reservation_status == ReservationStatus.booked && seance.after_confirmation_deadline?
   end

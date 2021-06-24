@@ -6,5 +6,12 @@ class ReservationCancelWorker
     return unless reservation.expired?
 
     reservation.update!(reservation_status: ReservationStatus.cancelled)
+    send_cancelled_mail(reservation) if reservation.user
+  end
+
+  private
+
+  def send_cancelled_mail(reservation)
+    ReservationMailer.with(user: reservation.user, reservation: reservation).cancelled.deliver_later
   end
 end
