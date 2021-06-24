@@ -10,7 +10,9 @@ module Reservations
         ActiveRecord::Base.transaction do
           repository.create!(reservation_params).tap do |reservation|
             Tickets::UseCases::Create.new(reservation: reservation, tickets: params[:tickets]).call
-            cancel_expired(reservation: reservation)
+
+            ReservationMailer.with(user: params[:user], reservation: reservation).booked.deliver_later
+            schedule_reservation_expiry(reservation: reservation)
           end
         end
       end
@@ -28,7 +30,7 @@ module Reservations
         }
       end
 
-      def cancel_expired(reservation:)
+      def schedule_reservation_expiry(reservation:)
         cancel_date = reservation.seance.confirmation_deadline
         ReservationCancelWorker.perform_at(cancel_date, reservation.id)
       end

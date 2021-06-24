@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1 style="font-size: 1.5rem; font-family: Helvetica, sans-serif;">
+      Thank you for your choosing MonteCinema!
+    </h1>
+    
+    <div style="font-family: Helvetica, sans-serif;">
+      <p>Booked tickets for <em><%= @movie.title %></em>:</p>
+
+      <ul>
+        <% @tickets.each do |ticket| %>
+            <li>
+              Seat: <%= ticket.seat%> - Price: $<%= ticket.ticket_type.price%> - Type: <%= ticket.ticket_type.name%>
+            </li>
+        <% end %>
+      </ul>
+
+      <p>Screening: <%= @seance.datetime %></p>
+    </div>
+  </body>
+</html>
