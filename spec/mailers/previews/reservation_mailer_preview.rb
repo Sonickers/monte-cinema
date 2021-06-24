@@ -4,4 +4,9 @@ class ReservationMailerPreview < ActionMailer::Preview
     user = User.first
     ReservationMailer.with(user: user, reservation: user.reservations.first).booked
   end
+
+  def cancelled
+    user = User.first
+    ReservationMailer.with(user: user, reservation: user.reservations.first).cancelled
+  end
 end
