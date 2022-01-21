@@ -14,6 +14,11 @@ To run this project:
 2. `rails db:setup`
 3. `rails server`
 
+### Tests
+To run tests:
+1. `bundle exec rake db:setup RAILS_ENV=test` (You only need to do this step once)
+1. `bundle exec rspec`
+
 ### Documentation
 API's documentation is generated with `rspec_api_documentation` and `apitome` and it's based in `/api/docs`. To generate it use `rails docs:generate`
 
