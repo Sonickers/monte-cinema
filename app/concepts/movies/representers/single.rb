@@ -10,7 +10,10 @@ module Movies
       def basic
         {
           id: movie.id,
-          title: movie.title
+          title: movie.title,
+          genre: movie.movie_genre,
+          poster_url: movie.poster_url,
+          length: movie.length
         }
       end
     end

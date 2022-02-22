@@ -10,6 +10,7 @@ module Reservations
       def basic
         {
           id: reservation.id,
+          user_id: reservation.user_id,
           seance_id: reservation.seance_id,
           status: reservation.reservation_status
         }
