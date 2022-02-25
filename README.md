@@ -8,11 +8,11 @@
 - Redis 6.2.4
 - RSpec 5.0.0
 
-### Setup
+### Setup in docker
 To run this project:
-1. `bundle install`
-2. `rails db:setup`
-3. `rails server`
+1. `make start` or `make build` in case the image is not working
+2. `docker-compose exec foreman bin/rails db:setup`
+3. visit localhost:3000
 
 ### Tests
 To run tests:
@@ -37,14 +37,14 @@ Functional requirements:
 - [x] There should be email communication provided:
   - [x] When reservation is created (tickets, seats and price should be attached)
   - [x] When reservation is terminated (the reason should be attached)
-- [x] Creating reservation should be robust and there should be validations (for instance - for already taken seats etc., - consider edge cases). 
+- [x] Creating reservation should be robust and there should be validations (for instance - for already taken seats etc., - consider edge cases).
 - [x] Application should have implemented authentication (there should be logging by user and by employer)
 - [x] Application should have authorization in terms of role-based separation
 - [x] Regular user should have ability to create only online reservation
 - [x] Employer should have ability to create online reservation but also offline reservation
 
 Not functional requirements:
-- [x] API should be documented 
+- [x] API should be documented
 - [x] Application should have provided seeds and should be generally operational
 - [x] At least 80% of tests coverage
 - [x] Application should have connected Sentry and CircleCI

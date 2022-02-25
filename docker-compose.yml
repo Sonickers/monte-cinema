@@ -1,0 +1,81 @@
+version: '2.4'
+
+x-app: &app
+  build:
+    context: .
+    dockerfile: Dockerfile
+  image: ghcr.io/monterail/monte-cinema
+  environment: &env
+    RAILS_ENV: ${RAILS_ENV:-development}
+  tmpfs:
+    - /tmp
+    - /app/tmp/pids
+
+x-backend: &backend
+  <<: *app
+  stdin_open: true
+  tty: true
+  volumes:
+    # needed for development or to apply local changes in docker
+    # - .:/app:cached,z
+    - .dockerdev/.psqlrc:/root/.psqlrc:ro
+    - .dockerdev/.bashrc:/root/.bashrc:ro
+  environment:
+    <<: *env
+    REDIS_URL: redis://redis:6379
+    DATABASE_URL: postgres://postgres:password@postgres:5432
+    RAILS_LOG_TO_STDOUT: enabled
+    WEB_CONCURRENCY: 0
+    HISTFILE: /app/log/.bash_history
+    PSQL_HISTFILE: /app/log/.psql_history
+    EDITOR: vi
+  depends_on:
+    postgres:
+      condition: service_healthy
+    redis:
+      condition: service_healthy
+    sendria:
+      condition: service_started
+
+services:
+  foreman:
+    <<: *backend
+    command: foreman start -f Procfile -p 3000
+    ports:
+      - '3000:3000'
+
+  postgres:
+    image: docker.io/postgres:14.2-alpine
+    volumes:
+      - .psqlrc:/root/.psqlrc:ro
+      - postgres:/var/lib/postgresql/data
+      - ./log:/root/log:cached
+    environment:
+      PSQL_HISTFILE: /root/log/.psql_history
+      POSTGRES_PASSWORD: password
+    ports:
+      - 5432
+    healthcheck:
+      test: pg_isready -U postgres -h 127.0.0.1
+      interval: 5s
+
+  redis:
+    image: docker.io/redis:6.2-alpine
+    volumes:
+      - redis:/data
+    ports:
+      - 6379
+    healthcheck:
+      test: redis-cli ping
+      interval: 1s
+      timeout: 3s
+      retries: 30
+
+  sendria:
+    image: ghcr.io/monterail/sendria/dev
+    ports:
+      - 1080:1080
+
+volumes:
+  postgres:
+  redis:
