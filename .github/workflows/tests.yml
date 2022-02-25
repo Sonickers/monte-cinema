@@ -1,21 +1,23 @@
 name: Tests
 
 on:
-  pull_request:
   push:
-    branches:
-      - 'master'
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgres://postgres:password@localhost:5432
+      REDIS_URL: redis://localhost:6379
+      RAILS_ENV: test
 
     services:
       postgres:
         image: postgres
         env:
           POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
+          POSTGRES_PASSWORD: password
         options: >-
           --health-cmd pg_isready
           --health-interval 10s
@@ -42,23 +44,10 @@ jobs:
         bundler-cache: true
 
     - name: Install PostgreSQL client
-      run: |
-        sudo apt-get -yqq install libpq-dev
+      run: sudo apt-get -yqq install libpq-dev
 
     - name: Build App
-      env:
-        PGHOST: localhost
-        PGUSER: postgres
-        PGPASSWORD: postgres
-        RAILS_ENV: test
-      run: |
-        bin/rails db:setup
+      run: bin/rails db:setup
 
     - name: Run Tests
-      env:
-        PGHOST: localhost
-        PGUSER: postgres
-        PGPASSWORD: postgres
-        RAILS_ENV: test
-      run: |
-        bundle exec rspec
+      run: bundle exec rspec
