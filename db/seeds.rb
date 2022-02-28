@@ -36,7 +36,7 @@ romance = MovieGenre.create(name: 'Romance')
 family = MovieGenre.create(name: 'Family')
 MovieGenre.create(name: 'Horror')
 MovieGenre.create(name: 'Documentary')
-MovieGenre.create(name: 'Action')
+action = MovieGenre.create(name: 'Action')
 
 movie1 = Movie.create(title: "Harry Potter and the Philosopher's Stone",
                       length: 159,
@@ -57,6 +57,41 @@ movie4 = Movie.create(title: 'Zootopia',
                       length: 110,
                       movie_genre: family,
                       poster_url: 'https://upload.wikimedia.org/wikipedia/en/9/96/Zootopia_%28movie_poster%29.jpg')
+
+Movie.create(title: 'Pulp Fiction',
+             length: 154,
+             movie_genre: action,
+             poster_url: 'https://en.wikipedia.org/wiki/File:Pulp_Fiction_(1994)_poster.jpg#/media/File:Pulp_Fiction_(1994)_poster.jpg')
+
+Movie.create(title: 'Interstellar',
+             length: 169,
+             movie_genre: scifi,
+             poster_url: 'https://en.wikipedia.org/wiki/Interstellar_(film)#/media/File:Interstellar_film_poster.jpg')
+
+Movie.create(title: 'La La Land',
+             length: 128,
+             movie_genre: comedy,
+             poster_url: 'https://en.wikipedia.org/wiki/File:La_La_Land_(film).png#/media/File:La_La_Land_(film).png')
+
+Movie.create(title: 'Inception',
+             length: 148,
+             movie_genre: scifi,
+             poster_url: 'https://en.wikipedia.org/wiki/File:Inception_(2010)_theatrical_poster.jpg#/media/File:Inception_(2010)_theatrical_poster.jpg')
+
+Movie.create(title: 'Django Unchained',
+             length: 165,
+             movie_genre: action,
+             poster_url: 'https://en.wikipedia.org/wiki/File:Django_Unchained_Poster.jpg#/media/File:Django_Unchained_Poster.jpg')
+
+Movie.create(title: 'How to Train Your Dragon',
+             length: 98,
+             movie_genre: family,
+             poster_url: 'https://en.wikipedia.org/wiki/File:How_to_Train_Your_Dragon_Poster.jpg#/media/File:How_to_Train_Your_Dragon_Poster.jpg')
+
+Movie.create(title: 'Dune',
+             length: 156,
+             movie_genre: action,
+             poster_url: 'https://en.wikipedia.org/wiki/File:Dune_(2021_film).jpg#/media/File:Dune_(2021_film).jpg')
 
 (0..5).each do |number|
   Seance.create(movie: movie1, hall: blue, datetime: "2021-10-01 #{(number * 2) + 10}:00")
